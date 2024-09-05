@@ -32,4 +32,10 @@ float tijd_dagen = tijd_uren/24;
 float tijd_jaren = tijd_dagen/365;
 println(tijd_seconden + " seconden", tijd_minuten + " minuten", tijd_uren + " uren", tijd_dagen + " dagen ", tijd_jaren + " jaren");
 
+float cijfer = 8;
+float cijfer_2 = 7; 
+float cijfer_3 = 7;
+
+println(Math.round(((cijfer + cijfer_2 + cijfer_3)/3)* 100.0)/ 100.0);
+
 }
