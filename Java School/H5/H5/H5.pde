@@ -1,5 +1,5 @@
 void setup(){
-  
+
 String a = "Wat ";
 String b = "Is ";
 String c = "Dat ";
