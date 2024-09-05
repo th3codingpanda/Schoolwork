@@ -1,3 +1,4 @@
+
 void setup(){
 int a = 2;
 int b = 10;
@@ -21,4 +22,14 @@ mijnEersteVariabele /=10;
 println(mijnEersteVariabele);
 mijnEersteVariabele -=10;
 println(mijnEersteVariabele);
+println(Math.floor(2.5));
+println(Math.round(2.4));
+println(Math.sqrt(4));
+float tijd_seconden = 1000000;
+float tijd_minuten = tijd_seconden/60; 
+float tijd_uren = tijd_minuten/60;
+float tijd_dagen = tijd_uren/24;
+float tijd_jaren = tijd_dagen/365;
+println(tijd_seconden + " seconden", tijd_minuten + " minuten", tijd_uren + " uren", tijd_dagen + " dagen ", tijd_jaren + " jaren");
+
 }
