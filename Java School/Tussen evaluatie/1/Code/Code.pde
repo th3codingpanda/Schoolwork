@@ -18,25 +18,45 @@ println("win 2");
 }
 else println("tie");
 
-int steen1 = 3;
-int steen2 = 0;
-int steen3 = 1;
-float resultaat = 0;
+int steen1 = 5;
+int steen2 = 6;
+int steen3 = 2;
+var resultaat = 0;
 if (steen1 >1 && steen2 >1 && steen3 > 1)
 {
 resultaat = Math.round(steen1 + steen2 + steen3) /3;
 }
-if (resultaat == 0)
+if (steen1 == 1 && steen2 == 1 && steen3 == 1)
 {
-println("Mis");
+println("CRICTICAL MISS");
 }
-else if (steen1 == 1 && steen2 == 1 && steen3 == 1)
+else if (resultaat == 0)
 {
-println("CRITICAL MISS");
+println("MISS");
 }
-else println("Hit" + resultaat + "Damage")
-//Je code komt hier
-print(resultaat);
+else if(steen1 == 6 && steen2 == 6 && steen3 == 6)
+{
+println("Critical Hit " + resultaat + "Damage");
+}
+else println("Hit " + resultaat + " Damage");
+println(resultaat);
+
+
+int lessen_gevolgd = 16;
+float cijfer = 5.5 ;
+int  lessen_needed = 20;
+lessen_needed = floor(lessen_gevolgd / 100 * 80);
+if (lessen_gevolgd>lessen_needed && cijfer > 5.5)
+{
+println("Geslaag!");
+}
+else {
+println("niet geslaagd");
+}
+
+
+
+
 
 
 
