@@ -1,0 +1,43 @@
+1.1.1 AND (&&) tabel
+
+a b uitkomst
+true true true
+false true false
+true false false
+false false false
+
+1.1.2 OR (||) tabel
+
+a b uitkomst
+true true true
+false true true
+true false true
+false false false
+
+1.2 Boolean expressie 1
+In de code hieronder wordt op elke regel de uitkomst van een vergelijking geprint. Zal dit true of false opleveren?
+probeer dit eerst eens in je ‘hoofd’ en daarna zou je het kunnen testen door die code uit te voeren.
+println(3==3); true
+println(4<=5); true
+int a = 5;
+println(3 > a); false
+println(a!=4);true (was a lil harder)
+println(2>1); true
+
+
+1.3 Boolean expressie 2
+Nu iets moelijker, zal dit true of false opleveren?
+int a = 5;
+println(a > 4 && false);
+println(a >= 5 && a > 1); true
+println(a == 5 && 3 == 3); true
+println(a != 5 || 3 == 3); false
+println(5-1+3 == 3 || a == a); true
+
+1.4 Boolean expressie 3
+Welke van deze expressies is true?
+B annoying question tho >:(
+
+1.7
+X 11
+Y 11
