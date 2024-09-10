@@ -44,9 +44,11 @@ println(resultaat);
 
 int lessen_gevolgd = 16;
 float cijfer = 5.5 ;
-int  lessen_needed = 20;
-lessen_needed = floor(lessen_gevolgd / 100 * 80);
-if (lessen_gevolgd>lessen_needed && cijfer > 5.5)
+float lessen_needed = 20;
+println(lessen_needed);
+lessen_needed = floor(lessen_needed / 100* 80);
+println(lessen_needed);
+if (lessen_gevolgd>=lessen_needed && cijfer >= 5.5)
 {
 println("Geslaag!");
 }
