@@ -21,7 +21,7 @@ else println("tie");
 int steen1 = 5;
 int steen2 = 6;
 int steen3 = 2;
-var resultaat = 0;
+float resultaat = 0;
 if (steen1 >1 && steen2 >1 && steen3 > 1)
 {
 resultaat = Math.round(steen1 + steen2 + steen3) /3;
@@ -50,7 +50,7 @@ lessen_needed = floor(lessen_needed / 100* 80);
 println(lessen_needed);
 if (lessen_gevolgd>=lessen_needed && cijfer >= 5.5)
 {
-println("Geslaag!");
+println("Geslaagd!");
 }
 else {
 println("niet geslaagd");
