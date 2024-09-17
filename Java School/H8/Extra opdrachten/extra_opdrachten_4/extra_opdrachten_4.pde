@@ -1,9 +1,9 @@
 void setup()
 {
   size(500,500);
-  for (int i = 0; i <21; i++)
+  for (int i = 0; i <=20; i++)
     {
-      for (int j = 0; j <21; j++)
+      for (int j = 0; j <=20; j++)
       {
        if ((j+i) % 2 == 0)
         {
