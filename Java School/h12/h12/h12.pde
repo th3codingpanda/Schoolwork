@@ -13,7 +13,7 @@ void draw()
 void keyPressed()
 {
   
-     if (keyCode == UP)
+     if (key == ' ')
      {
         X += 5;
      }
