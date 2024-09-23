@@ -90,14 +90,15 @@ void SqrMove() {
   if( b < 250 - rectHeight / 2) rectHeight += 0.2;
   else if(b > 250 - rectHeight / 2) rectHeight -= 0.2;
 
-  if ( x > width - rectWidth){
-    x = 0;
-    rectWidth = 50;
-  }
-  if (y > height - rectHeight){
-    y = 0;
+  
+
+  if (b > height - rectHeight){
+    b = 0;
     rectHeight = 50;
-    left = false;
+    rectWidth = 50;
+        a = 500;
+    left = true;
+    right = false;
   }
   }
 }
