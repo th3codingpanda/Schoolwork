@@ -1,0 +1,18 @@
+grid (most likely use true or false statements to show what space is occupied double array)
+
+remove if row is full(if the entire row is true then make false )
+
+falling()
+
+
+randomise pieces(i need to get a random number inbetween my amount of pieces and then pull the piece that corrosponds with that number)
+
+Be able to store pieces(i want the player to be able to store one piece in their side bar i will prob need to make 2 ints for this and store the number that the piece is)
+
+score 
+
+rotating pieces(rotate the pieces)
+
+find a point system
+
+
