@@ -1,14 +1,31 @@
 int Xrow = 10;
 int Yrow = 20;
-boolean BlockScreen = false;
+int timer = 0;
+boolean spacebarpressed = false;
+boolean BlockScreen = true;
+boolean Screenscanned = true;
 boolean[][] myArray = new boolean[Xrow][Yrow];
 // int for amount of rows and array to use those;
 // blockscreen to check if a block is on screen so i dont have 100 blocks
 void blokjes() {
   if (BlockScreen)
   {
-    
-  } else if (!BlockScreen)
+
+    for (int i = 9; i >=0; i--) {
+
+      for (int j = 19; j>= 0; j--) {
+
+        if (j<19 && myArray[i][j]&&timer >= 60 &&!myArray[i][j+1]  ) {
+
+          println("test");
+          myArray[i][j] = false;
+          myArray[i][j+1] = true;
+          
+      
+      }
+    }
+    }
+} else if (!BlockScreen)
   {
     int Random_num = 0;
     //Random_num = int(random(7));
@@ -26,13 +43,22 @@ void blokjes() {
 }
 void draw()
 {
+
+  timer+=1;
+  println(timer);
   Grid();
   blokjes();
+  if (timer >= 60 ) {
+    timer=0;
+  }
+
   line(200, 0, 200, 400);
 }
 void setup()
 {
-  myArray[5][5] = true;
+  myArray[0][0] = true;
+  myArray[5][6] = true;
+  myArray[5][7] = true;
   size(300, 400);
 }
 void Grid() {
@@ -44,10 +70,20 @@ void Grid() {
       if (!myArray[i][j]) {
         fill(255);
         rect(Xrect, Yrect, 20, 20);
-      } else if (myArray[i][j]) {
+      } else {
         fill(0);
         rect(Xrect, Yrect, 20, 20);
       }
     }
   }
+}
+void keyPressed()
+{
+ if (key == ' '){spacebarpressed = true;}
+ if (spacebarpressed == true){timer+=60;}
+}
+void keyReleased()
+{
+if (key == ' '){spacebarpressed = true;}
+ if (spacebarpressed == true){spacebarpressed = false;}
 }
