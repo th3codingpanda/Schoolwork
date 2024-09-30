@@ -3,12 +3,13 @@ int Yrow = 20;
 int timer = 0;
 boolean Rightpressed;
 boolean Leftpressed;
-boolean spacebarpressed = false;
+boolean Spacebarpressed = false;
 boolean BlockScreen = true;
-boolean Screenscanned = true;
 boolean[][] myArray = new boolean[Xrow][Yrow];
-// int for amount of rows and array to use those;
+// int Xrow for x Yrow for y
 // blockscreen to check if a block is on screen so i dont have 100 blocks
+// Pressed to check if its pressed
+// Myarray is used for the grid and is a boolean so if theres a block its true if theres not one then its false
 void blokjes() {
   if (BlockScreen)
   {
@@ -22,6 +23,7 @@ void blokjes() {
           println("test");
           myArray[i][j] = false;
           myArray[i][j+1] = true;
+          //makes the thing go down every 1 second
         }
       }
     }
@@ -35,6 +37,7 @@ void blokjes() {
     {
       for (int i =5; i<8; i++) {
         myArray[i][0] = true;
+        // currently does nothing i think it was going to be used for spawning them in
       }
     }
     //gives random number from 0 to 6 so 7 since there are 7 pieces
@@ -47,12 +50,16 @@ void draw()
   timer+=1;
   println(timer);
   Grid();
+  // draws the grid
   blokjes();
+  //draws the blokjes
   if (timer >= 60 ) {
     timer=0;
   }
+  // resets the timer i couldnt figure out how to fit it into a method
 
   line(200, 0, 200, 400);
+  // line to devide the screen am going to use this as a scoreboard and a next
 }
 void setup()
 {
@@ -61,6 +68,7 @@ void setup()
   myArray[4][0] = true;
   myArray[4][1] = true;
   size(300, 400);
+  // setup
 }
 void Grid() {
 
@@ -71,9 +79,12 @@ void Grid() {
       if (!myArray[i][j]) {
         fill(255);
         rect(Xrect, Yrect, 20, 20);
+        // creates the white squares if false
       } else {
+        
         fill(0);
         rect(Xrect, Yrect, 20, 20);
+        // creates the black squares if its true
       }
     }
   }
@@ -81,9 +92,9 @@ void Grid() {
 void keyPressed()
 {
   if (key == ' ') {
-    spacebarpressed = true;
+    Spacebarpressed = true;
   }
-  if (spacebarpressed == true) {
+  if (Spacebarpressed == true) {
     timer+=60;
   }
   if (key == 'd' || keyCode== RIGHT) {
@@ -92,16 +103,19 @@ void keyPressed()
   if (key == 'a' || keyCode == LEFT) {
     Leftpressed = true;
   }
+  // left right spacebar pressed check
   for (int i = 0; i <=9; i++) {
 
     for (int j = 0; j<= 19; j++) {
       if (i>0&& i<9 && myArray[i][j]&& !myArray[i-1][j] && Leftpressed) {
         myArray[i][j] = false;
         myArray[i-1][j] = true;
+        // left if leftpressed = true and it works
       } else if (i==9 && myArray[i][j] && Leftpressed )
       {
         myArray[i][j]= false;
         myArray[i-1][j] = true;
+        //left pressed and against the borders so it doesnt crash
       }
     }
   }
@@ -112,10 +126,12 @@ void keyPressed()
       
         myArray[i][j] = false;
         myArray[i+1][j] = true;
+        // rightpressed and possible
       } else if (i==0 && myArray[i][j] && Rightpressed )
       {
         myArray[i][j]= false;
         myArray[i+1][j] = true;
+        // right pressed and against border
       }
     }
   }
@@ -123,10 +139,10 @@ void keyPressed()
 void keyReleased()
 {
   if (key == ' ') {
-    spacebarpressed = true;
+    Spacebarpressed = true;
   }
-  if (spacebarpressed == true) {
-    spacebarpressed = false;
+  if (Spacebarpressed == true) {
+    Spacebarpressed = false;
   }
   if (key == 'd' || keyCode== RIGHT) {
     Rightpressed = false;
@@ -134,4 +150,5 @@ void keyReleased()
   if (key == 'a' || keyCode == LEFT) {
     Leftpressed = false;
   }
+  // checked if released
 }
