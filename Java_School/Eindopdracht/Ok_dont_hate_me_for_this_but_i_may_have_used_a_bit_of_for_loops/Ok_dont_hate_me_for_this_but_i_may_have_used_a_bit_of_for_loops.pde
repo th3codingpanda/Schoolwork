@@ -6,6 +6,7 @@ boolean Leftpressed;
 boolean Spacebarpressed = false;
 boolean BlockScreen = true;
 boolean[][] myArray = new boolean[Xrow][Yrow];
+boolean[][] myMove = new boolean[Xrow][Yrow];
 // int Xrow for x Yrow for y
 // blockscreen to check if a block is on screen so i dont have 100 blocks
 // Pressed to check if its pressed
@@ -13,17 +14,30 @@ boolean[][] myArray = new boolean[Xrow][Yrow];
 void blokjes() {
   if (BlockScreen)
   {
-
-    for (int i = 9; i >=0; i--) {
-
-      for (int j = 19; j>= 0; j--) {
-
-        if (j<19 && myArray[i][j]&&timer >= 60 &&!myArray[i][j+1]  ) {
-
-          println("test");
-          myArray[i][j] = false;
-          myArray[i][j+1] = true;
-          //makes the thing go down every 1 second
+    boolean mayImove = true;
+    if(timer >= 60){
+      
+      for (int i = 9; i >=0; i--) {
+        for (int j = 19; j>= 0; j--) {
+          if (myMove[i][j]) {
+            if(j<19 && (!myArray[i][j+1] || myMove[i][j+1])){}
+            else{ mayImove = false;break;}
+          }
+        }
+      }
+      for (int i = 9; i >=0; i--) {
+        for (int j = 19; j>= 0; j--) {
+          if(myMove[i][j]){
+            if(mayImove){
+              myArray[i][j] = false;
+              myArray[i][j+1] = true;
+              
+              myMove[i][j] = false;
+              myMove[i][j+1] = true;
+            }else{
+              myMove[i][j] = false;
+            }
+          }
         }
       }
     }
@@ -63,10 +77,15 @@ void draw()
 }
 void setup()
 {
+  frameRate(100);
   myArray[2][0] = true;
   myArray[3][0] = true;
   myArray[4][0] = true;
   myArray[4][1] = true;
+  myMove[2][0] = true;
+  myMove[3][0] = true;
+  myMove[4][0] = true;
+  myMove[4][1] = true;
   size(300, 400);
   // setup
 }
@@ -89,6 +108,7 @@ void Grid() {
     }
   }
 }
+
 void keyPressed()
 {
   if (key == ' ') {
@@ -105,7 +125,6 @@ void keyPressed()
   }
   // left right spacebar pressed check
   for (int i = 0; i <=9; i++) {
-
     for (int j = 0; j<= 19; j++) {
       if (i>0&& i<9 && myArray[i][j]&& !myArray[i-1][j] && Leftpressed) {
         myArray[i][j] = false;
