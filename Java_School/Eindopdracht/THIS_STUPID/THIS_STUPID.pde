@@ -39,6 +39,7 @@ void Grid() {
 }
 void draw()
 {
+  
   cry.create();
   cry.fall();
   timer+=1;
@@ -67,6 +68,12 @@ class crying {
         Testmove[5][0] = true;
         Testmove[6][0]= true;
         Testmove[6][1] = true;
+        myArray[4][3]= true;
+        myMove[4][3] = true;
+         Testmove[4][3]= true;
+                 myArray[4][4]= true;
+        myMove[4][4] = true;
+         Testmove[4][4]= true;
         BlockScreen = true;
       }
     }
@@ -79,7 +86,8 @@ class crying {
       for (int i = 9; i >=0; i--) {
         for (int j = 19; j>= 0; j--) {
 
-          if (j<19 && myArray[i][j] &&(myMove[i][j] || !myArray[i][j+1] )) {
+          if (j<19 && Testmove[i][j] &&(myMove[i][j] || !myArray[i][j+1] )) {
+            
             if (!Testmove[i][j+1] && myMove[i][j])
             {
               Testmove[i][j] =false;
@@ -89,17 +97,20 @@ class crying {
               myMove[i][j] =false;
               myMove[i][j+1] =true;
             }
-            else if (myMove[i][19]) {
-              for (int x = 9; i >=0; i--) {
-                for (int y = 19; j>= 0; j--) {
-                }
-              }
-
-            } else {
-            }
-          }
+            if (myMove[i][19] || Testmove[i][j+1]) {
+                    for (int x = 9; i >=0; i--) {
+        for (int y = 19; j>= 0; j--) { myMove[x][y] = false;
+           
+              
         }
-      }
+                
+              }
+            }
+             else {
+            }
+            
+          }
+        }}
     }
   }
 }
