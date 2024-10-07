@@ -86,6 +86,7 @@ void draw()
   Grid();
   Grid2();
   Grid3();
+  
 }
 class Tetris {
   void create() {
@@ -93,6 +94,7 @@ class Tetris {
       if (!Testmove[i][0]) {
         if (!BlockScreen) {
           int Ran= int(random(0, 8));
+          println(Ran);
           
           if (Ran == 0)
           {
