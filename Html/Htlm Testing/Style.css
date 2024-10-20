@@ -1,0 +1,25 @@
+
+body
+{
+    margin: 1px;
+    color: green;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: large;
+    font: weight 2px;
+    text-align: center;
+    border: 1px;
+    border-radius: 1px;
+    border-color: red;
+    border-style: double;
+    border-width: 1px;
+    padding: 1px;
+    
+
+}
+#Gojoisdead{
+    color: red;
+}
+.Jjk
+{
+    color: blue;
+}
